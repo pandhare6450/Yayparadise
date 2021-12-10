@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+          <title>{% block title %}{% endblock %}</title>  
+          <!-- Required meta tags -->
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="icon" type="image/png" sizes="192x90"  href="/media/favi/android-chrome-192x192.png">
+          <meta name="msapplication-config" content="none">
+
+          <!-- Bootstrap CSS -->
+       
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+         
+        
+          <!-- Core Stylesheet -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <link rel="stylesheet" href="/static/style.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+          <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(){
+              
+              window.addEventListener('scroll', function() {
+                  
+                if (window.scrollY > 200) {
+                  document.getElementById('navbar_top').classList.add('fixed-top');
+                  // add padding top to show content behind navbar
+                  navbar_height = document.querySelector('.navbar').offsetHeight;
+                  document.body.style.paddingTop = navbar_height + 'px';
+                } else {
+                  document.getElementById('navbar_top').classList.remove('fixed-top');
+                  // remove padding top from body
+                  document.body.style.paddingTop = '0';
+                } 
+              });
+            }); 
+            // DOMContentLoaded  end
+          </script>
+      <style type="text/css">
+            .fixed-top {
+                top: -40px;
+                transform: translateY(40px);
+                transition: transform .3s;
+            }
+          
+      </style>
+      <style>
+      .flex-container {
+            display: flex;
+            margin-top: -30px;
+            padding: 0;
+            height: 50px;
+            margin-left: 60px;
+          }
+          .flex-container li {
+            list-style: none;
+            flex-grow: 1;
+
+          }
+          .twitter {
+            background-color: transparent;
+            order: 2;
+            
+          }
+
+          .facebook {
+            background-color:transparent;
+            order: 1;
+            
+          }
+
+          .linkedin {
+            background-color: transparent;
+            order: 3;
+            
+          }
+
+          .flex-container a {
+            display: block;
+          }
+          .flex-container i {
+            color: #fff;
+            line-height: 100px;
+            width: 100%;
+            text-align: center;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          
+          /* Style the search field */
+          form.example input[type=text] {
+            height: 20px;
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid white;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+          }
+          
+          /* Style the submit button */
+          form.example button {
+            height: 22px;
+            float: left;
+            width: 20%;
+            /* padding: 10px; */
+            background: #295234;
+            color: white;
+            font-size: 13px;
+            border: 1px solid white;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+          }
+            /* Clear floats */
+          form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+      </style>
+</head>
+<body>   
+    <div class="py-3" >
+      <div class="container-fluid "style="height:auto;border-radius: 20px;margin-bottom:-10px">
+        <div class="header-area">
+    
+          <!-- ***** Top Header Area ***** -->
+          <div class="top-header-area">
+    
+            <div class="row text-center" style="display: flex;justify-content: center;align-items: center;">
+              <div class="col-auto text-white">
+                <ion-icon style="font-size: 20px;color:white;margin-bottom:-5px;"name="location-sharp"></ion-icon>168,Minburi,Minburi,Bangkok,Thailand
+              </div>
+    
+              <div class="col-auto text-white">
+                <ion-icon style="font-size: 20px;color:white;margin-bottom:-5px;" name="call-sharp"></ion-icon>+66 84 145 4704</a>
+              </div>
+    
+              <div class="col-auto text-white">
+                
+                  <span><ion-icon  style="font-size: 20px;color:white;margin-bottom:-5px;" name="mail-sharp"></ion-icon>info@yayparadise.com
+              </div>
+    
+    
+              <!-- Top Header Content -->
+              <div id="social" class="col-auto">
+                <a href=""><ion-icon style="font-size: 20px;color:white;padding-top: 5px; " name="logo-facebook"></ion-icon></a>
+              </div>
+    
+              <div class="col-auto">
+                <a href=""><ion-icon style="font-size: 20px;color:white;padding-top: 5px;" name="logo-twitter"></ion-icon></a>
+              </div>
+    
+              <div class="col-auto">
+                <a href=""><ion-icon style="font-size: 20px;color:white;padding-top: 5px;" name="logo-linkedin"></ion-icon></a>
+              </div>
+              <div class="col-auto">
+              <form class="example" method="get" action="/search">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search" style="font-size: 15px;"></i></button>
+              </form>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+    <nav id="navbar_top" class="navbar navbar-expand-lg" style="border: 2px solid green; border-radius: 25px; background-color:white ;margin-bottom:5px;">
+      <div class="container-fluid">
+        <a class="navbar-brand display-6" href="#"style="font-size:2vw;font-weight:500;letter-spacing:2px">YAY Paradise Trading Company Limited </a>
+        <img src="/media/logo.jpg" class='img-fluid' style="padding:0px; width: 130px; height: 40px; margin-left:0px " alt="">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+        <ion-icon name="menu-outline"></ion-icon>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="main_nav">
+       <ul class="navbar-nav ms-auto" style="font-size:1.3rem;text-decoration: none;color: green;letter-spacing:3px;">
+        <li class="nav-item text-success"><a class="nav-link" href="{% url 'ecomapp:home' %}"> HOME </a></li>
+        <li class="nav-item text-success"><a class="nav-link" href="{% url 'ecomapp:about' %}"> ABOUT US</a></li>
+        <li class="nav-item text-success"><a class="nav-link" href="{% url 'ecomapp:allproducts' %}"> PRODUCTS </a></li>
+        <li class="nav-item text-success"><a class="nav-link" href="{% url 'ecomapp:contact' %}"> CONTACT</a></li>
+        
+      </ul>
+    
+      </div> <!-- navbar-collapse.// -->
+  
+      </div> <!-- container-fluid.// -->
+      
+      
+    </nav>
+
+{% block content %}
+
+{% endblock %}
+    <!-- Footer -->
+    <footer style="margin:0px;padding:0px;background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,35,1) 56%, rgba(185,255,0,1) 100%);; opacity: 0.9;">
+    <div class="container-fluid w-100 p-0 ">
+    <div class="row" >
+          <div class="col-lg-3" style="padding-left: 20px; padding-top: 10px;">
+            <img src="/media/logo1.jpg" class='img-fluid' style="padding-top: 50px; max-width: 100%; height:auto;" alt="">
+            <div class="container text-center">
+              <ion-icon style="font-size: 30px;color:white; margin:10px" name="logo-facebook"></ion-icon>
+              <ion-icon style="font-size: 30px;color:white;margin:10px" name="logo-twitter"></ion-icon>
+              <ion-icon style="font-size: 30px;color:white;margin:10px" name="logo-linkedin"></ion-icon>
+            </div>
+          </div>
+    
+          <div class="col-lg-9 text-white">
+            <div class="row" style="text-align: justify;">
+              <div class="col-lg-4 ">
+              <h3>CONTACT US</h3>
+              <div class="contact-information">
+              <p><span>Address:</span> 168,Minburi,Bankok,Thailand</p>
+              <p><span>Phone:-</span> +66 84 145 4704</p>
+              <p style="padding-left: 58px;">   +668411454704</p>
+              <p><span>Email:-</span>yayparadisecompany@yahoo.com</p>        
+              <p style="padding-left: 45px;">sales@yayparadise.com</p>        
+            </div>
+            </div>
+          
+            <div class="col-lg-3 text-white ">
+            <h3>QUICK LINK</h3>
+              <div class="single-footer-widget" style="width: 200px; height: auto;">
+                  
+                  <nav class="widget-nav">
+                      <ul>
+                          <li><a href="">Home</a></li>                         
+                          <li><a href="">About us </a></li>                         
+                          <li><a href="">Products</a></li>
+                          <li><a href="">Downloads</a></li>
+                          <li><a href="">Contact</a></li>
+                      </ul>
+                  </nav>
+              </div>
+          </div>         
+          <div class="col-lg-5 text-white" style="padding-right: 0px;">
+            <h3>OUR LOCATION</h3>
+            <iframe class='img-fluid' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.7144415464236!2d101.43486031483431!3d14.094026990126617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zMTTCsDA1JzM4LjUiTiAxMDHCsDI2JzEzLjQiRQ!5e0!3m2!1sen!2sin!4v1632898650003!5m2!1sen!2sin" width="340" height="170" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            
+          </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- Copyright -->
+      <div class="text-center text-white" style="margin-bottom:0px;padding:0px;background: rgb(63,94,251);
+      background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(95,252,70,1) 100%);">   © 2021 Copyright:
+        <a class="text-reset fw-bold text-white" href="" style="font-size: 1vw;text-decoration: none;">© 2021 All rights reserved</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

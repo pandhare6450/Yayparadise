@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}All Products{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" href="/static/style1.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1>All Products</h1>
+{% for cat in allcategories %}
+<div class="container bg-secondary">
+  <div class="accordion mx-auto">
+    <div class="accordion-item"style="margin-bottom: -20px;">
+      <div class="accordion-item-header" style="color:#295234;margin-bottom: -10px;">
+        <div style="width: 800px;"><h4>Category &nbsp:- &nbsp; {{cat.title}}</h4></div>
+        <div><img src="{{cat.image.url}}" style="width: 80px;height:auto;padding-bottom:4px"  alt=""></div>
+      </div>
+      <div class="accordion-item-body ">
+        <div class="accordion-item-body-content">
+          <div class="row ">
+            {% for p in cat.product_set.all %}
+            {% if p.available %}
+            <div class="col-sm-2 card text-center shadow p-3 mb-5 bg-white rounded" style="margin-left: 18px;">
+              <img src="{{p.image.url}}" class="rounded mx-auto d-block img-fluid"
+                style="height: 100px; width:'100px'; object-fit: cover;" alt="">
+              <a href="{% url 'ecomapp:productdetail' p.slug %}"
+                style="text-decoration: none;color: #295234;">{{p.title}}</a>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+<!-- partial -->
+  <script  src="/static/script.js"></script>
+
+</body>
+</html>
+{% endblock %}

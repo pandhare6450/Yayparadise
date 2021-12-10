@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}{{product.title}}{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="row mx-auto text-white text-center mt-2">
+            
+                <div class="col-md-3 offset-2 shadow-lg  rounded" style="background-color: #295234;">
+                    <h5 style="display: inline;">Product : {{product.title}} </h5>
+                </div>
+                    <div class="col-md-4 offset-1 shadow-lg rounded" style="background-color: #495e4e;">
+                        <h6>Category:{{product.category}} </h6>
+                    </div>
+                
+            </div>
+        
+        <hr>
+        <div class="row mb-2">
+            <div class="col-lg-4 offset-1 p-3">
+                <div class="img-fluid shadow p-2 bg-white rounded" style="display: flex;justify-content: center;align-items: center;">
+                    <img style="width: 30vw;height: auto;" src="{{product.image.url}}" alt=''
+                        class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 shadow p-3 mb-2 bg-white rounded">
+                <h2>{{product.title}} </h2>
+                <h5> Viewed </strong> {{product.view_count}} times)</h5>
+                <h5><strong>Category:</strong> {{product.category}}</h5>
+                <h5><strong>Family:</strong> {{product.family}}</h5>
+                <h5><strong>Uses:</strong> {{product.uses}}</h5>
+                <h5><strong>Soil: </strong>{{product.soil}}</h5>
+                <h5><strong>Fertilizer:</strong> {{product.fertiliser}}</h5>
+                <h5><strong>Water: </strong>{{product.Water}}</h5>
+                <h5><strong>Description:</strong>{{product.content | safe}}</h5>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+   
+</body>
+</html>

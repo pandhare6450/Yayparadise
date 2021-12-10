@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<html>
+
+<head>
+  <meta name="description" content="The YayParadise,provides quality products regarding gardening essentionals.This is page about gardening and tree plantation ">
+  <meta name="robots" content="index,follow">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+ 
+  <style>
+    .card img:hover {
+      opacity: 0.8;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: 40vw;
+    }
+
+    @keyframes zoominoutsinglefeatured {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      15% {
+        transform: scale(1.02, 1.02);
+      }
+
+      30% {
+        transform: scale(1.04, 1.04);
+      }
+
+      45% {
+        transform: scale(1.06, 1.06);
+      }
+
+      60% {
+        transform: scale(1.08, 1.08);
+      }
+
+      75% {
+        transform: scale(1.1, 1.1);
+      }
+
+      90% {
+        transform: scale(1.12, 1.12);
+      }
+
+      100% {
+        transform: scale(1.14, 1.14);
+      }
+    }
+
+    #cardcontainer img {
+      animation: zoominoutsinglefeatured 5s 1;
+    }
+    .whowe::first-letter{
+      font-size: 30px;
+      color:#295234;
+    }
+    .abcd a{
+      text-decoration: none;
+      color: #295234;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div id="cardcontainer" class="carousel-item active">
+        <img class="d-block w-100 " src="/media/car1.jpg" alt="First slide">
+      </div>
+      <div id="cardcontainer" class="carousel-item">
+        <img class="d-block w-100" src="/media/car2.jpg" alt="Second slide">
+      </div>
+      <div id="cardcontainer" class="carousel-item">
+        <img class="d-block w-100" src="/media/car3.jpg" alt="Third slide">
+      </div>
+      <div id="cardcontainer" class="carousel-item">
+        <img class="d-block w-100" src="/media/car4.jpg" alt="Fourth slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!--Products Category-->
+  <div class="container-fluid">
+    <div class="row justify-content-evenly">
+      <!--filter-->
+      <div class="col-lg-3">
+        <div class="list-group">
+          <h4 class='display-4' style="text-indent: 15px;font-size:25px;">All Categories</h4>
+          {% for cat in allcategories %}
+          <div class="abcd">
+            <a href="{% url 'ecomapp:categorydeatil' cat.id %}" class="list-group-item list-group-item-action"
+              style="background-color: #295234;color:white;border:1px solid white;">{{cat.title}}</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="container">
+          <hr>
+          <div class="row mt-3">
+            {% for cat in allcategories %}
+            <div class="col-md-2 mt-2 card text-center col-lg-2 shadow p-3 mb-2 bg-white rounded"
+              style="background-color:transparent; margin-left: 15px; border: 1px solid white;">
+              <div>
+                <div class="img-fluid p-0 mt-0">
+                  <img src="{{cat.image.url}}" class='img-fluid'>
+                </div>
+                <div class="abcd">
+                  <a href="{% url 'ecomapp:categorydeatil' cat.id %}"> {{cat.title}} </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div class="post-container">
+    <div class="row justify-content-evenly mt-2 mb-2 ">
+      <div class="col-md-3 ">
+        <div class="post-thumb p-6"><img src="/media/icon1.gif" style="padding:50px"></div>
+      </div>
+      <div class="post-content col-md-8 m-2">
+        <p class="text-justify whowe " style="text-indent: 50px;padding: 20px;"><i>YAY Paradise is a new plant Nursery founded on 1994 , that is dedicated to provide quality choice for
+            individuals searching for plant and garden supplies, as well as serving contractors who need a reliable
+            source of products.
+            We at YAY Paradise wishes to offer a wide variety of plants, trees, shrubs along with a selection of
+            garden/landscaped supplies. We believe that with a suitable and convenient location, we will successfully
+            market its products to the residential customer, as well as contractors. We are global exporter.
+          </i>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</body>

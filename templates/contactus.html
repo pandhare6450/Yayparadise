@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .list-group-item {
+            background-color: #295234;
+            color: white;
+            letter-spacing: 3px;
+        }
+    
+        .col-lg-5 span {
+            text-decoration-line: underline;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+        }
+    </style>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+    </script>
+</head>
+
+<body>
+                <div class="row justify-content-evenly mt-4 ">
+                <div class="col px-md-5 ">
+                    <div class="p-3 border bg-light shadow-lg p-3 mb-5 bg-white rounded">
+                        
+                        <div class="col-lg-5 ml-10 text-white text-center shadow-lg bg-white p-3 mb-5 rounded" style=" background-color: #295234;margin-left: 20px;">
+                            <h2 style="color: #295234;">Contact Us</h2>
+                            <div class="card mx-auto mt-5" style="width: 20rem;">
+                                <ul class="list-group list-group-flush "  >
+                                  <li class="list-group-item" >Experienced Support</li>
+                                  <li class="list-group-item">Faster Response</li>
+                                  <li class="list-group-item">Always Helpful</li>
+                                </ul>
+                              </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col px-md-5 mb-2">
+                    <div class="p-3 border bg-light shadow-lg bg-white p-3 mb-5 rounded">
+                    <h2 class="text-center " style="color: #295234;;">Contact Form</h2>
+                    <form  method="post"  class="needs-validation" novalidate  action="/contact" 
+                    >
+                        {% csrf_token %}
+                        <div class="form">
+                            <div class=" mb-3">
+                                <label for="validationCustom01">Full name</label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Full name" name='fname' required>
+                               <div class="invalid-feedback">
+                                    Please Enter Your Name.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom03">Phone</label>
+                                <input type="text" class="form-control" id="validationCustom03" placeholder="Phone Number" name='phone' required>
+                                <div class="invalid-feedback">
+                                    Please Enter Phone Number.
+                                </div>
+                            </div>                        
+                            <div class="mb-3">
+                                <label for="validationCustom03">Address</label>
+                                <input type="text" class="form-control" id="validationCustom03" placeholder="Address"  name='address' required>
+                                <div class="invalid-feedback">
+                                    Please Enter Address.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="validationCustom04">Message</label>
+                                <textarea type="textarea" class="form-control" id="validationCustom04" placeholder="Message" name='msg' required></textarea>
+                                <div class="invalid-feedback">
+                                    Please provide a Message.
+                                </div>
+                            </div>
+                            
+                        
+                    </div>  
+                    <button class="btn text-white" style="background-color:#295234 " type="submit">Submit form</button>
+                    </form>
+
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                        <strong>Thank You</strong> {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+              </div>
+
+
+    <div class="contaier" style="margin-top: 0px; margin-bottom:20px">
+        <div class="row text-white justify-content-evenly" style="  background-color: #295234;">
+            <div class="col-lg-4  " style="padding-left:70px;padding-top: 70px;">
+                <div class="shadow-lg bg-white text-success p-3 mb-5 rounded">
+                <h1 class="text-center">CONTACT US </h1>
+                <p><span>Address:</span> No.4 Soi.Ramkhamhaeng ,168,Minburi,Minburi,Bankok 10610,Thiland</p>
+                <p><span>Phone:</span> +66841454504</p>
+                <p><span>Email:</span> yayparadisecompany@yahoo.com</p>
+                
+            </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="map-area">
+                    <h1 class="text-center" >GOOGLE MAP</h1>
+                    <iframe class="shadow-lg bg-white p-3 mb-5 rounded" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.7144415464236!2d101.43486031483431!3d14.094026990126617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zMTTCsDA1JzM4LjUiTiAxMDHCsDI2JzEzLjQiRQ!5e0!3m2!1sen!2sin!4v1632898650003!5m2!1sen!2sin"
+                        width="700vw" height="350vh" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

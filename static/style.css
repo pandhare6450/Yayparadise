@@ -1,0 +1,40 @@
+.top-header-area{
+  background-color: #295234;
+}
+.top-header-area a{
+  text-decoration: none
+  color: white;
+  font-size: 15px;
+}
+.navbar-nav a{
+  color: #295234;
+  font-weight: 700;
+  
+}
+.navbar-brand{
+  color: #295234;
+  
+}
+#navbar_top{
+  margin: 0px;
+  
+}
+footer{
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+.s_info a{
+  height: 50px;
+  color: green;
+
+}
+.widget-nav a{
+  text-decoration: none;
+  color: white;
+  
+}
+ul{
+  list-style: none;
+}

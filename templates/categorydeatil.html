@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %}Category Detail{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<style>
+    .abcd{
+        font-size:16px;
+    }
+    .abcd :hover{
+        font-size: 20px;
+    }
+
+
+</style>
+</head>
+
+<div class="container-fluid" style="margin-bottom:10px;">
+    <h4>Category Wise Products {{page_obj.category}}</h4>
+    <hr>
+    <div class = "container-fluid mt-6" >
+        <div class="row" style="background-color: rgb(188, 247, 188);" >
+            <!--sidebar-->
+              <div class="col-lg-2"  >
+    
+                  <div class="list-group">
+                  <h4>All Categories</h4>
+                  {% for cat in allcategories %}
+                  <div class="abcd" >
+                  <a href="{% url 'ecomapp:categorydeatil' cat.id %}"
+                  class="list-group-item list-group-item-action text-white" style="background-color: #295234;border:1px solid white;">{{cat.title}}</a>
+                  </div>
+                  {% endfor %}
+                  </div> 
+              </div>
+
+               <!--Product and Paginator View-->
+              <div class="col-lg-10" style="position: relative;">
+              <div class="row">                         
+                <div class="container" >
+                  <hr>
+
+                  <!-- Only Product View-->
+                  <div class="row mt-3" >   
+                                    
+                    {% for p in page_obj %}
+                      <div class="col-md-2 card text-center shadow p-3  bg-white rounded" style="margin-left: 15px;padding: 0px;border: 1px solid white;">
+                        
+                          <div class="mg-fluid">
+                          <img src="{{p.image.url}}" style="padding:0px; height: 150px; width:100%; object-fit: contain;" alt="">
+                          <h4><a style="text-decoration: none;font-size: 13px;color: rgb(82, 80, 80);" href="{% url 'ecomapp:productdetail' p.slug %}">{{p.title}}</a></h4>  
+                          <p style="font-size: 13px;">{{p.category}}</p>
+                          
+                        </div>     
+                      </div> 
+                      {% endfor %}
+                    </div> 
+                  
+                <!-- Pagination-->
+                <div style="position: absolute; bottom: 0px;right: 20px;" >
+                      <nav aria-label="Page navigation">   <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                          <a class="page-link" href="?page=1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">begin</span>
+                          </a>
+                        </li>   
+                        
+                        {% endif %}
+                        
+                        {% for n in page_obj.paginator.page_range %}
+                          {% if page_obj.number == n %}
+                            <li class="page-item active">
+                              <span class="page-link">{{ n }}<span class="sr-only">(current)</span></span>
+                            </li>
+                          {% elif n > page_obj.number|add:'-3' and n < page_obj.number|add:'3' %}
+                            <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+                            
+                          {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                          <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">end</span>
+                            </a>
+                          </li>
+                          
+                          {% endif %}   </ul> 
+                      </nav>
+                    </div> 
+                  </div>
+                  </div>                                                         
+                </div>                                         
+              </div>
+          </div>                         
+    </div>   
+   
+   </div>
+   
+ {% endblock %}
+</body>
+</html>
